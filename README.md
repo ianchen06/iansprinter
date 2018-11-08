@@ -12,3 +12,4 @@
 ## Software
 1. [Klipper firmware](https://github.com/KevinOConnor/klipper)
 1. [Cura 3](https://ultimaker.com/en/products/ultimaker-cura-software)
+1. [Slic3r PE v1.41.1](https://github.com/prusa3d/Slic3r/releases/tag/version_1.41.1)
