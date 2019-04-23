@@ -1,0 +1,35 @@
+start gcode
+===============================
+G21 ;metric values
+G90 ;absolute positioning
+M82 ;set extruder to absolute mode
+M107 ;start with the fan off
+BED_MESH_CLEAR
+G28 ;move X/Y to min endstops
+BED_MESH_CALIBRATE
+G0 X0 Y15 F9000 ; Go to front
+G0 Z0.2 ; Drop to bed
+G92 E0 ; zero the extruded length
+G1 X50 E25 F500 ; Extrude 25mm of filament in a 4cm line
+G92 E0 ; zero the extruded length
+G1 E-1 F500 ; Retract a little
+G1 X80 F4000 ; Quickly wipe away from the filament line
+G1 Z0.3 ; Raise and begin printing.
+
+
+
+
+end gcode
+=======================
+M104 S0 ;extruder heater off
+M140 S0 ;heated bed heater off (if you have it)
+G91 ;relative positioning
+G1 E-1 F300  ;retract the filament a bit before lifting the nozzle, to release some of the pressure
+G1 Z+0.5 E-5 X-20 Y-20 F4000 ;move Z up a bit and retract filament even more
+
+G90 ;absolute positioning
+G0 X0 Y200 F9000 ;move X/Y to min endstops, so the head is out of the way
+BED_MESH_CLEAR
+M84 ;steppers off
+G90 ;absolute positioning
+M82 ;absolute extrusion mode
